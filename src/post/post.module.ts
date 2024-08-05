@@ -9,6 +9,7 @@ import { UserModule } from 'src/user/user.module';
   imports:[TypeOrmModule.forFeature([Post]), UserModule],
   controllers: [PostController],
   providers: [PostService],
+  exports: [PostService]
   
 })
 export class PostModule {}
