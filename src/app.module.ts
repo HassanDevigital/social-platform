@@ -13,7 +13,7 @@ import { PostModule } from './post/post.module';
       port: 5432,
       username: 'postgres',
       password: 'password',
-      database: 'test',
+      database: 'mydatabase',
       entities: [join(__dirname, "**", "*.entity.{ts,js}")],
       synchronize: true
      

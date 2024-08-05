@@ -1,3 +1,4 @@
+import { UserService } from './../user/user.service';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -10,11 +11,12 @@ export class PostService {
   constructor(
     @InjectRepository(Post)
     private postsRepository: Repository<Post>,
+    private userService: UserService
   ) {}
 
   async createPost(createPostDto: CreatePostDto, userId: number): Promise<Post> {
-    //@ts-ignore
-    const user = await this.usersRepository.findOne(userId);
+    console.log('userID',userId)
+    const user = await this.userService.findOne(userId);
     if (!user) {
       throw new NotFoundException(`User with ID ${userId} not found`);
     }
