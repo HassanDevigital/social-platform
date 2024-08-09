@@ -28,7 +28,7 @@ export class CommentService {
     });
     return this.commentRepository.save(comment);
   }
-
+// function createComment
   async findAllByPost(postId: number): Promise<Comment[]> {
     return this.commentRepository.find({
       where: { post: { id: postId } },
